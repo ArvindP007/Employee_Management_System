@@ -1,6 +1,5 @@
 using Employee_Management_System.API;
 using Employee_Management_System.API.Data;
-using Employee_Management_System.API.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -26,7 +25,6 @@ builder.Services.AddDbContext<AppDbContext>(options =>
                 builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
-builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 
 builder.Services.AddAuthentication(opt => {
     opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
